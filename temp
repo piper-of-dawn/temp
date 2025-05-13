@@ -1,0 +1,74 @@
+### **3.2 Idiosyncratic Loss Impacts – Explainer**
+
+The idiosyncratic loss table shows the contribution to tail losses driven by uncorrelated (residual) risk across positions. Notably, at the **95% quantile**, total idiosyncratic loss **declines slightly** when CS positions are added:
+
+| Probability | Only UBS (USDm) | UBS + CS Combined (USDm) |
+| ----------- | --------------- | ------------------------ |
+| 0.95        | 383             | **377**                  |
+| 0.999       | 572             | 574                      |
+| 0.9999      | 776             | 784                      |
+
+This decline at the 95% level reflects a **diversification effect**: the addition of CS exposures increases the number of independent idiosyncratic risk drivers, reducing the likelihood of large, simultaneous tail outcomes from the UBS-only concentrated positions. Specifically, the **SIX Group AG**, which was the dominant idiosyncratic risk contributor (298 USDm at 0.95 quantile), becomes slightly less dominant (291 USDm) post-integration. Meanwhile, no single CS position overwhelms the distribution—allowing the diversified structure to spread the residual risk more evenly across the portfolio.
+
+In higher quantiles (0.999, 0.9999), total idiosyncratic loss increases slightly, indicating that the CS positions do add extreme tail risk, but this is outweighed at lower quantiles by the dilution of concentrated UBS exposures.
+
+**Conclusion:**
+The slight reduction in 95% quantile idiosyncratic loss is a direct result of portfolio diversification and reduced concentration in high-volatility fallback exposures such as SIX Group. This validates the risk-sharing benefit of integrating CS into the broader simulation pool.
+
+
+
+Here’s the updated explanation with the additional context on diversification impact:
+
+---
+
+### **3.1 Overall Impact**
+
+The integration of CS exposures into the Investment Risk Model leads to a net increase in both RBC and EAR:
+
+| Metric  | UBS Plus CLO | UBS Plus CS | Increase  |
+| ------- | ------------ | ----------- | --------- |
+| **RBC** | 1716 USDm    | 2001 USDm   | +282 USDm |
+| **EAR** | 716 USDm     | 828 USDm    | +112 USDm |
+
+The standalone RBC for the CS BDA overlay was previously **429 USDm**. The fact that the net increase in RBC upon full integration is **only 282 USDm** indicates a **diversification benefit of 147 USDm**, arising from correlation effects and risk offset across the broader UBS+CS portfolio.
+
+---
+
+### **Risk Type Contributions**
+
+| LOSS\_TYPE    | UBS Plus CLO | Combined (UBS+CS) | Increase |
+| ------------- | ------------ | ----------------- | -------- |
+| **Market**    | 1203 USDm    | 1445 USDm         | +242     |
+| **Liquidity** | 255 USDm     | 279 USDm          | +24      |
+| **Default**   | 321 USDm     | 282 USDm          | **−39**  |
+
+* **Market risk** dominates the increase, contributing 86% of the uplift.
+* **Default risk** contribution **decreases**, indicating that CS positions are less sensitive to default risk relative to their UBS counterparts.
+
+---
+
+### **Loss Rates**
+
+| LOSS\_TYPE    | LOSS\_RATE\_UBS\_PLUS\_CLO | LOSS\_RATE\_COMBINED |
+| ------------- | -------------------------- | -------------------- |
+| **Market**    | 0.242505                   | 0.291288             |
+| **Liquidity** | 0.0514037                  | 0.0562417            |
+| **Default**   | 0.0647082                  | 0.0568465            |
+
+The rise in market loss rate confirms the heavier market risk load post-integration, while the decline in default loss rate indicates diversification across less correlated default exposures.
+
+---
+
+### **Idiosyncratic Loss Rates**
+
+| LOSS\_TYPE  | LOSS\_RATE\_UBS\_PLUS\_CLO | LOSS\_RATE\_COMBINED |
+| ----------- | -------------------------- | -------------------- |
+| **Market**  | 0.142318                   | 0.164492             |
+| **Default** | 0.00221742                 | 0.002419             |
+
+The increase in idiosyncratic market loss rate reflects a shift in contribution weight toward higher-variance CS positions. Default remains marginal and stable.
+
+---
+
+**Conclusion:**
+While the gross standalone RBC for CS exposures under BDA was 429 USDm, the net increase from integration is only 282 USDm—demonstrating a **diversification gain of 147 USDm**. This reflects the structural benefits of pooling risk exposures across a broader, less correlated portfolio, improving capital efficiency while retaining full coverage under the unified CST-sourced model.
